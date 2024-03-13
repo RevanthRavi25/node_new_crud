@@ -8,5 +8,6 @@ const StudentSchema = new mongoose.Schema({
 	Address: String
 });
 
+
 module.exports = mongoose.model(
 	'student', StudentSchema, 'Students');

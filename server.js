@@ -15,4 +15,5 @@ app.use(bodyParser.urlencoded({ extended: true }));
 // Parses the text as json
 app.use(bodyParser.json());
 
+
 app.use('/api', api);
