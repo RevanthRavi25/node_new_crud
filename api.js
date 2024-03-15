@@ -2,7 +2,7 @@ const mongoose = require('mongoose');
 const express = require('express');
 const router = express.Router();
 const StudentModel = require('./studentschema');
- 
+
 // Connecting to database
 // const query = 'mongodb+srv://Username:<password>'
 //     + '@student.tuufn.mongodb.net/College?'
@@ -12,12 +12,12 @@ const StudentModel = require('./studentschema');
 const uri = "mongodb+srv://revanth:Y89puDZZ55yBFtQb@cluster0.rhrtxsn.mongodb.net/student_detail?retryWrites=true&w=majority&appName=Cluster0";
 
 mongoose.connect(uri)
-  .then(() => {
-    console.log("Connected to MongoDB");
-  })
-  .catch((error) => {
-    console.error("Error connecting to MongoDB:", error);
-  });
+    .then(() => {
+        console.log("Connected to MongoDB");
+    })
+    .catch((error) => {
+        console.error("Error connecting to MongoDB:", error);
+    });
 
 module.exports = router;
 // create (save) data
@@ -105,10 +105,12 @@ router.post('/update', async function (req, res) {
     try {
         const updatedStudent = await StudentModel.findByIdAndUpdate(
             req.body._id,
-            {             StudentId: req.body.StudentId,
+            {
+                StudentId: req.body.StudentId,
                 Name: req.body.Name,
                 Roll: req.body.Roll,
-                Birthday: req.body.Birthday},
+                Birthday: req.body.Birthday
+            },
             { new: true } // To return the updated document
         );
         if (!updatedStudent) {
